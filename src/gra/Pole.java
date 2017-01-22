@@ -1,6 +1,6 @@
 package gra;
 
-public class Pole {
+class Pole {
     private Postać postać;
     private int x, y;
     private int xKon, yKon; // do ktorych wspolrzednych postac zajmuje miejsce na planszy
@@ -28,13 +28,21 @@ public class Pole {
     public void przesuń(Kierunek kierunek) {
         switch (kierunek) {
             case GÓRA:
-                y--; break;
+                y--;
+                yKon--;
+                break;
             case DÓŁ:
-                y++; break;
+                y++;
+                yKon++;
+                break;
             case LEWO:
-                x--; break;
+                x--;
+                xKon--;
+                break;
             case PRAWO:
-                x++; break;
+                x++;
+                xKon++;
+                break;
         }
     }
 
@@ -60,5 +68,28 @@ public class Pole {
 
     public void setNaPlanszy(boolean naPlanszy) {
         this.naPlanszy = naPlanszy;
+    }
+
+    public void setRuch(Kierunek ruch) { this.ruch = ruch;}
+
+    public Kierunek getRuch() {
+        return ruch;
+    }
+
+    public boolean getNaPlanszy() {
+        return naPlanszy;
+    }
+
+    @Override
+    public String toString() {
+        return "Pole{" +
+                "postać=" + postać +
+                ", x=" + x +
+                ", y=" + y +
+                ", xKon=" + xKon +
+                ", yKon=" + yKon +
+                ", ruch=" + ruch +
+                ", naPlanszy=" + naPlanszy +
+                '}';
     }
 }
